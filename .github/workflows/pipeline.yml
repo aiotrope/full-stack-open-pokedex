@@ -71,7 +71,8 @@ jobs:
       - uses: PIMPfiction/AutoTagVersionRelease@v1
         with:
           github-token: ${{ secrets.PAT }}
-
+      - name: Try to fail
+        run: exit 1
       - name: Test Success
         uses: BubbleProd/discord-webhook-notify@v2
         if: ${{ success() }}
@@ -93,7 +94,6 @@ jobs:
           severity: error
           username: aiotrope
           color: "#f44336"
-          title: Pokedex Deployment Issue
           avatarUrl: https://avatars.githubusercontent.com/u/85620343?v=4
           text: Pokedex deployment issue.
           details: Build or deploy error.

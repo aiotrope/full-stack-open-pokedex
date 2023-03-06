@@ -1,8 +1,10 @@
 # FSO: Part 11
 
-Date started: 1.3.2023
+Exercises: 1 - 19
 
-Date revised: 5.3.2023
+Date started: 1.3.2023 - 6.3.2023
+
+Date revised: 5.3.2023 - 6.3.2023
 
 ### Minor Changes
 

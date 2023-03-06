@@ -2,11 +2,11 @@ name: Basic Pipeline
 
 on:
   push:
-    branches: [ "master" ]
+    branches: ["master"]
     paths-ignore:
       - "README.md"
   pull_request:
-    branches: [ "master" ]
+    branches: ["master"]
 
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
@@ -42,7 +42,7 @@ jobs:
           wait-on: http://localhost:3002
 
   deploy:
-    if: ${{ github.ref == 'refs/heads/master' }}
+    if: ${{ (github.ref == 'refs/heads/master') && (!contains(github.event.head_commit.message, '#skip')) }}
     runs-on: ubuntu-latest
     needs: [build]
     strategy:

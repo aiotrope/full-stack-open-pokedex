@@ -1,16 +1,16 @@
-name: Periodic HealthCheck Pipeline # Run at the end of everyday
+name: Periodic HealthCheck Pipeline
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "45 23 */2 * *" # Run at 23:45 on every 2nd day-of-month
 jobs:
   check_url:
     steps:
       - name: Check the deployed URL
         uses: jtalk/url-health-check-action@v3
         with:
-          url: https://pokedex-flame-two.vercel.app/
+          url: https://pokedex-flame-two.vercel.app|https://pokedex-flame-two.vercel.app
           follow-redirect: false
-          max-attempts: 3
-          retry-delay: 5s
+          max-attempts: 4
+          retry-delay: 10s
           retry-all: false
